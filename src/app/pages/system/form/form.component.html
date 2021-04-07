@@ -1,0 +1,9 @@
+<vma-frame-main title="Demo">
+  <vma-upload [(value)]="stringValue"></vma-upload>
+
+  <vma-image-upload [(value)]="arrayValue" [nzLimit]="2"></vma-image-upload>
+
+  <vma-upload [nzBeforeUpload]="beforeUpload">
+    <button nz-button>Uploader</button>
+  </vma-upload>
+</vma-frame-main>

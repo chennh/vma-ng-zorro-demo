@@ -1,0 +1,45 @@
+<form nz-form [formGroup]="entity" (ngSubmit)="submit()">
+  <nz-form-item>
+    <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired>角色名称</nz-form-label>
+    <nz-form-control [nzSm]="18" [nzXs]="24" nzHasFeedback nzValidatingTip="校验中..." [nzErrorTip]="nameErrorTip">
+      <input nz-input formControlName="name" maxlength="16" trim="blur" />
+      <ng-template #nameErrorTip let-control>
+        <ng-container *ngIf="control.errors.required">
+          请输入角色名称
+        </ng-container>
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired>菜单权限</nz-form-label>
+    <nz-form-control [nzSm]="18" [nzXs]="24" nzValidatingTip="校验中..." [nzErrorTip]="resourceMenuListErrorTip"
+      [nzValidateStatus]="entity.controls.resourceMenuList">
+      <nz-spin [nzSpinning]="loadingResource">
+        <app-resource-menu-list-tree *ngIf="resourceMenuList.length" [resourceMenuList]="resourceMenuList"
+          formControlName="resourceMenuList">
+        </app-resource-menu-list-tree>
+      </nz-spin>
+      <ng-template #resourceMenuListErrorTip let-control>
+        <ng-container *ngIf="control.errors.required">
+          请选择菜单权限
+        </ng-container>
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="4" [nzXs]="24">功能权限</nz-form-label>
+    <nz-form-control [nzSm]="18" [nzXs]="24">
+      <app-resource-action-list [resourceActionList]="resourceActionList" formControlName="resourceActionList">
+      </app-resource-action-list>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item nz-row>
+    <nz-form-control class="align-c">
+      <a nz-button nzType="primary" (click)="submit()">确定</a>
+      <a nz-button class="ml-5" (click)="cancel()">取消</a>
+    </nz-form-control>
+  </nz-form-item>
+</form>

@@ -1,0 +1,72 @@
+.page-login {
+  position: relative;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.page-login-hd {
+  margin: 0 60px;
+  height: 90px;
+  padding: 20px 0;
+  border-bottom: 1px solid hsla(0, 0%, 100%, .4);
+  box-shadow: 0 10px 10px -6px rgb(18 64 107 / 10%);
+
+  .page-login-logo {
+    max-width: 420px;
+    height: 50px;
+  }
+}
+
+.page-login-ft {
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+  font-size: 12px;
+  line-height: 24px;
+  color: #fff;
+  text-align: center;
+}
+
+
+.login-box-footer {
+  margin: 20px 0 0;
+  text-align: center;
+
+  .ant-btn {
+    padding: 0;
+  }
+}
+
+.login-box {
+  padding: 50px 60px;
+  border-radius: 10px;
+  border-radius: 10px;
+  background: #fff;
+}
+
+
+:host ::ng-deep {
+  .login-box-wrapper {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    right: 242px;
+    width: 440px;
+    height: 430px;
+    margin-top: -220px;
+  }
+
+  .login-box-btn {
+    display: block;
+    height: 48px;
+    padding: 12px 0;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .login-box-item {
+    margin: 30px 0 0;
+  }
+
+}

@@ -1,0 +1,10 @@
+$theme-primary: #5252cc;
+$theme-warning: #F7AD60;
+$theme-error: #f24957;
+
+
+$theme-map: ('primary': $theme-primary,
+  'warning': $theme-warning,
+  'danger': $theme-error,
+  'error': $theme-error, );
+$size-map: (f20: -10px, f15: -10px, f10: -10px, f5: -5px, 0: 0px, 5: 5px, 10: 10px, 15: 15px, 20: 20px, 25: 25px, 30: 30px, 40: 40px, 50: 50px, 100: 100px);

@@ -1,0 +1,73 @@
+<vma-frame-main title="Demo" [tools]="tools">
+  <ng-template #tools>
+    <i nz-icon nzType="question-circle" nzTheme="outline" class="cursor-p" nz-popover nzPopoverPlacement="topRight"
+      nzPopoverContent="Content"></i>
+  </ng-template>
+  <div class="page">
+    <div class="flex">
+      <form class="flex-1" nz-form nzLayout="inline" (ngSubmit)="search()">
+        <ng-template #searchIcon>
+          <i nz-icon nzType="search" class="cursor-p" (click)="search()"></i>
+        </ng-template>
+        <nz-form-item>
+          <nz-form-control>
+            <nz-input-group [nzSuffix]="searchIcon">
+              <input type="text" name="name" nz-input placeholder="请输入" maxlength="30" [(ngModel)]="params.name" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+      <div class="flex-r">
+        <button nz-button nzType="primary" class="ml-5" (click)="formBlock.show()">新建</button>
+        <button nz-button class="ml-5">详情</button>
+      </div>
+    </div>
+    <div class="page-tools flex">
+      <div class="flex-1">
+        <button nz-button class="mr-5">详情</button>
+        <button nz-button class="mr-5">详情</button>
+        <button nz-button class="mr-5">详情</button>
+      </div>
+      <div class="flex-r">
+        <a nz-button nzType="link" (click)="search()"><i nz-icon nzType="reload"></i>刷新列表</a>
+      </div>
+    </div>
+    <div class="page-table" vmaViewHeight #tableView="vmaViewHeight">
+      <nz-table #tableRef [nzData]="table.list" [nzShowPagination]="false"
+        [nzScroll]="{ y: (tableView.height - tableHeaderView.height) + 'px' }">
+        <thead>
+          <tr vmaViewHeight #tableHeaderView="vmaViewHeight">
+            <th>角色名称</th>
+            <th nzWidth="100px">状态</th>
+            <th nzWidth="200px">创建时间</th>
+            <th nzWidth="200px">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of tableRef.data; trackBy: trackById">
+            <td>{{ data.name }}</td>
+            <td>
+              <nz-switch [ngModel]="data.status === 1" (ngModelChange)="update({id: data.id, status: +$event}, '更新状态')">
+              </nz-switch>
+            </td>
+            <td>{{ data.createTime | date }}</td>
+            <td>
+              <a class="mr-10" (click)="formBlock.showId(data.id)">编辑</a>
+              <a class="mr-10 c-error" (click)="confirmDel(data.id)">删除</a>
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </div>
+    <nz-pagination class="page-pagination" [(nzPageIndex)]="params.current" [(nzPageSize)]="params.size"
+      [nzTotal]="pagination.total" (nzPageIndexChange)="page($event)" (nzPageSizeChange)="page(1, $event)">
+    </nz-pagination>
+  </div>
+
+  <nz-modal [(nzVisible)]="formBlock.value.visible" [nzTitle]="formBlock.title()" [nzFooter]="null" [nzWidth]="800"
+    (nzOnCancel)="formBlock.hide()">
+    <app-demo-form *nzModalContent [dataProp]="formBlock.value.entity" (submitEvt)="formBlock.submit()"
+      (cancelEvt)="formBlock.hide()"></app-demo-form>
+  </nz-modal>
+
+</vma-frame-main>

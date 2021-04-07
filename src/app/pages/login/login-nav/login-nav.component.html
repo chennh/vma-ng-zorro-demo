@@ -1,0 +1,6 @@
+<div class="login-navs">
+  <div class="login-nav-item active" *ngFor="let nav of list; let index = index;"
+    [class.active]="activeNav === index" (click)="clickNav(index)">
+    {{nav || '-'}}
+  </div>
+</div>

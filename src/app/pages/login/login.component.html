@@ -1,0 +1,36 @@
+<div class="page-login" [style.backgroundImage]="'url(' + loginDefaultConfig.bg + ')'">
+  <div class="page-login-hd">
+    <img class="page-login-logo" [src]="loginDefaultConfig.logo">
+  </div>
+  <div class="page-login-bd">
+    <vma-flip [flip]="isTrail" wrapperClass="login-box-wrapper">
+      <div class="login-box" slot="front">
+        <app-login-nav slot="nav" [list]="['验证码登录', '密码登录']" (clickEvt)="changeLoginNav($event)">
+        </app-login-nav>
+        <app-login-box-mobile *ngIf="loginNav === LoginNav.CODE" (loginEvt)="loginMobile($event)">
+          <div slot="footer" class="login-box-footer">
+            没有账号？<a nz-button nzType="link" (click)="toggleIsTrail(true)">申请试用</a>
+          </div>
+        </app-login-box-mobile>
+        <app-login-box-password *ngIf="loginNav === LoginNav.PASSWORD" (loginEvt)="loginPassword()">
+          <div slot="footer" class="login-box-footer">
+            没有账号？<a nz-button nzType="link" (click)="toggleIsTrail(true)">申请试用</a>
+          </div>
+        </app-login-box-password>
+      </div>
+      <div class="login-box" slot="behind">
+        <app-login-nav slot="nav" [list]="['申请试用']"></app-login-nav>
+        <app-login-box-mobile (loginEvt)="loginMobile($event)">
+          <div slot="footer" class="login-box-footer">
+            已有账号？<a nz-button nzType="link" (click)="toggleIsTrail(false)">前往登录</a>
+          </div>
+        </app-login-box-mobile>
+      </div>
+    </vma-flip>
+  </div>
+  <div class="page-login-ft">
+    技术支持：{{loginDefaultConfig.technicalSupport}} (推荐使用谷歌浏览器、火狐浏览器以及360极速浏览器)
+    <br />
+    网站ICP备案号：{{loginDefaultConfig.record}} Copyright {{loginDefaultConfig.instructions}} 版权所有
+  </div>
+</div>

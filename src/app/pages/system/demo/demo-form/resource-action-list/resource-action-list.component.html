@@ -1,0 +1,28 @@
+<label nz-checkbox [(ngModel)]="allChecked" (ngModelChange)="handleAllCheck($event)">全选</label>
+
+<nz-checkbox-wrapper style="width: 100%;">
+  <div nz-row nzGutter="16" class="mt-10" *ngFor="let arr of dataList">
+    <div nz-col nzSpan="12">
+      <nz-card *ngIf="arr[0]" [nzTitle]="arr[0].data.title" [nzExtra]="more">
+        <div *ngFor="let item of arr[0].data.node">
+          <label nz-checkbox [nzValue]="item.resourceId" [ngModel]="value.includes(item.resourceId)"
+            (ngModelChange)="handleNodeCheck($event, item, arr[0])">{{item.title}}</label>
+        </div>
+        <ng-template #more>
+          <label nz-checkbox [(ngModel)]="arr[0].allChecked" (ngModelChange)="handleGroupCheck($event, arr[0])"></label>
+        </ng-template>
+      </nz-card>
+    </div>
+    <div nz-col nzSpan="12">
+      <nz-card *ngIf="arr[1]" [nzTitle]="arr[1].data.title" [nzExtra]="more">
+        <div *ngFor="let item of arr[1].data.node">
+          <label nz-checkbox [nzValue]="item.resourceId" [ngModel]="value.includes(item.resourceId)"
+            (ngModelChange)="handleNodeCheck($event, item, arr[1])">{{item.title}}</label>
+        </div>
+        <ng-template #more>
+          <label nz-checkbox [(ngModel)]="arr[1].allChecked" (ngModelChange)="handleGroupCheck($event, arr[1])"></label>
+        </ng-template>
+      </nz-card>
+    </div>
+  </div>
+</nz-checkbox-wrapper>

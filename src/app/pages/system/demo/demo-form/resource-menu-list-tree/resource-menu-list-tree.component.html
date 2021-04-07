@@ -1,0 +1,3 @@
+<nz-tree *ngIf="treeData.length" #nzTree [nzData]="treeData" nzCheckable
+  [nzCheckedKeys]="checkedKeys" (nzCheckBoxChange)="onCheckBoxChange($event)">
+</nz-tree>

@@ -1,0 +1,22 @@
+.page {
+  @extend .flex;
+  @extend .flex-column;
+  overflow: auto;
+
+  &>.page-table {
+    flex: 1;
+  }
+}
+
+.page-tools {
+  margin: 10px 0;
+  padding: 8px 15px;
+  background-color: #f0f2ff;
+  border: 1px solid #d9d9ff;
+  border-radius: 4px;
+}
+
+.page-pagination {
+  margin: 10px 0;
+  text-align: right;
+}

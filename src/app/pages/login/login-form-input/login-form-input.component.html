@@ -1,0 +1,9 @@
+<div class="login-form-input animated" [class.active]="isFocus" [class.shake]="invalid" [class.invalid]="invalid"
+  (click)="onFocus()">
+  <i class="login-form-input-icon icon" *ngIf="icon" [class]="icon"></i>
+  <div class="login-form-input-container">
+    <input #inputRef [type]="type" [placeholder]="placeholder" [attr.maxLength]="maxLength" [disabled]="disabled" [ngModel]="value"
+      (focus)="onFocus()" (blur)="onBlur()" (keyup.enter)="onEnter()" (ngModelChange)="onInput(input.value)" #input>
+  </div>
+  <ng-content select="[slot=suffix]"></ng-content>
+</div>
