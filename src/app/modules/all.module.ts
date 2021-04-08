@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { PluginsModule } from './plugins/plugins.module'
 import { ServicesModule } from './services/services.module'
+import { LibsModule } from './components/libs/libs.module'
 
 
 
@@ -19,6 +20,7 @@ import { ServicesModule } from './services/services.module'
     RouterModule,
     PluginsModule,
     ServicesModule,
+    LibsModule,
   ]
 })
 export class AllModule { }

@@ -11,7 +11,6 @@ module.exports = (config, options) => {
       }
     }]
   })
-
   if (options && options.optimization) {
     config.plugins.push(
       new CompressionWebpackPlugin({
@@ -23,4 +22,5 @@ module.exports = (config, options) => {
       })
     )
   }
+  return config
 }

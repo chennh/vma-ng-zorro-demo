@@ -1,3 +1,4 @@
+import { environment } from './environment'
 export { environment } from './environment'
 
 export const loginDefaultConfig = {
@@ -8,3 +9,4 @@ export const loginDefaultConfig = {
   instructions: '版权说明1',
 }
 export const appNamespace = 'app'
+export const ckeditorUploadUrl = `${environment.api}/common/v1.0/oss/qiniu/editor4.4?a=1`

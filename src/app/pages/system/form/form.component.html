@@ -6,4 +6,6 @@
   <vma-upload [nzBeforeUpload]="beforeUpload">
     <button nz-button>Uploader</button>
   </vma-upload>
+  <button nz-button (click)="editorReadOnly = !editorReadOnly">editorReadOnly</button>
+  <vma-editor [(ngModel)]="editorText" [readOnly]="editorReadOnly"></vma-editor>
 </vma-frame-main>

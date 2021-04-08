@@ -19,6 +19,6 @@ export class RouterService {
   }
 
   navigateToMaintain() {
-
+    this.router.navigateByUrl('/public/maintain')
   }
 }

@@ -13,6 +13,9 @@ export class FormComponent implements OnInit {
 
   arrayValue: string[] = []
 
+  editorText = ''
+  editorReadOnly = false
+
   constructor(
     private uploaderService: VmaUploaderService
   ) { }
