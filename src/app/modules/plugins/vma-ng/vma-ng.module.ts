@@ -16,7 +16,7 @@ const uploadOptions: UploadOptions = {
 const editorOptions: EditorOptions = {
   editorUrl: 'https://resource.v-ma.com/vendor/ckeditor/ckeditor.js',
   config: {
-    ckeditorUploadUrl
+    filebrowserImageUploadUrl: ckeditorUploadUrl
   }
 }
 

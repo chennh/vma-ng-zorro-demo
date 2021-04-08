@@ -19,6 +19,11 @@ export class AdminInfoService {
 
   setAdminInfo(data: LoginBO | null) {
     this.adminInfo$.next(data)
+    if (data) {
+      macKeyCookie.set(data.macKey)
+    } else {
+      macKeyCookie.remove()
+    }
   }
 
   initAndSubscribe(fn: (data: LoginBO | null) => void) {
@@ -27,10 +32,9 @@ export class AdminInfoService {
   }
 
   async regetAdminInfo() {
-    const data = await AccountApi.menuList({ loading: false, errorHandle: false })
+    const data = await AccountApi.menuList({ loading: false })
     this.setAdminInfo(data)
-    macKeyCookie.set(data.macKey)
-    return this.adminInfo
+    return data
   }
 
   async confirmAdminInfo() {
