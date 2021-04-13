@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core'
 import { VmaComponentsModule, UPLOAD_OPTIONS, UploadOptions, EDITOR_OPTIONS, EditorOptions } from 'vma-ng/vma-ng-zorro'
 import { VmaNgAssistModule } from 'vma-ng/vma-ng-assist'
-import { ckeditorUploadUrl } from '@/environments'
+import { ckeditorUploadUrl, qiniuTokenUrl } from '@/environments'
 
 
 const uploadOptions: UploadOptions = {
   zoneType: 'qiniu',
   zone: {
     qiniuZone: {
-      tokenUrl: '/common/v1.0/oss/qiniu/qiniutoken',
+      tokenUrl: qiniuTokenUrl,
     }
   }
 }

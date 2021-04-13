@@ -10,3 +10,4 @@ export const loginDefaultConfig = {
 }
 export const appNamespace = 'app'
 export const ckeditorUploadUrl = `${environment.api}/common/v1.0/oss/qiniu/editor4.4?a=1`
+export const qiniuTokenUrl = '/common/v1.0/oss/qiniu/qiniutoken'
