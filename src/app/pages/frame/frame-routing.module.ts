@@ -4,7 +4,9 @@ import { FrameComponent } from './frame.component'
 
 const routes: Routes = [
   {
-    path: '', component: FrameComponent, children: [
+    path: '',
+    component: FrameComponent,
+    children: [
       { path: 'system', loadChildren: () => import('../system/system.module').then(m => m.SystemModule) }
     ]
   },
