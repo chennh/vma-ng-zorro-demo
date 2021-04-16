@@ -31,7 +31,7 @@
     "tslib": "^2.0.0",
     "uuid": "^8.3.0",
     "vma-assist": "^1.0.58",
-    "vma-ng": "^1.0.4",
+    "vma-ng": "^1.0.5",
     "zone.js": "~0.11.3"
   },
   "devDependencies": {

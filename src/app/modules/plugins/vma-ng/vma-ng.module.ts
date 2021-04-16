@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core'
-import { VmaComponentsModule, UPLOAD_OPTIONS, UploadOptions, EDITOR_OPTIONS, EditorOptions } from 'vma-ng/vma-ng-zorro'
-import { VmaNgAssistModule } from 'vma-ng/vma-ng-assist'
+import { VmaComponentsModule, UPLOAD_OPTIONS, UploadOptions } from 'vma-ng/vma-ng-zorro'
+import { VmaNgAssistModule, EDITOR_OPTIONS, EditorOptions } from 'vma-ng/vma-ng-assist'
 import { ckeditorUploadUrl, qiniuTokenUrl } from '@/environments'
 
 
